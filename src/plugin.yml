@@ -1,0 +1,12 @@
+name: SignRotate
+main: com.jascotty2.signrotate.SignRotate
+version: 0.1
+website: https://github.com/jascotty2/
+author: jascotty2
+description: >
+             makes signs rotate :)
+commands:
+  signrotate:
+    description: start/stop a sign
+    usage: /<command> [cw, ccw, delay]
+    aliases: [sr]

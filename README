@@ -1,0 +1,31 @@
+Sign Rotate
+rotates signs :)
+
+features: 
+rotates signs :)
+ingame-configurable:
+- delay between each rotation
+- rotate direction
+permissions support:
+- signrotate.create 	to add/remove rotating signs
+- signrotate.admin	to change plugin settings
+
+
+commands:
+/signrotate (sr) 		toggle sign adding
+/signrotate (sr) cw / ccw	change rotation direction
+/signrotate (sr) delay <time>	change delay interval (seconds)
+
+
+Todo:
+allow wall signs to "rotate" around its block
+iConomy support?
+allow blocks to rotate (not just signs) ?
+- if there is a sign/torch on a face, rotate 4
+- else, rotate 8
+
+
+Changelog: 
+
+Version 1.0 - 4/9/11
+Initial Release
