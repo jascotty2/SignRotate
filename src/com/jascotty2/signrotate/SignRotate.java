@@ -42,7 +42,7 @@ public class SignRotate extends JavaPlugin {
 
         pm.registerEvent(Event.Type.PLAYER_INTERACT, rot.signAdder, Priority.Normal, this);
         config = new SRConfig(this.getConfiguration());
-
+        rot.load();
         rot.start();
         Log(this.getDescription().getVersion() + " enabled");
     }
