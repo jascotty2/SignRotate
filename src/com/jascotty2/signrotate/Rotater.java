@@ -50,6 +50,7 @@ public class Rotater {
             rotater = null;
         }
     }
+
     public boolean load() {
         if (SRConfig.signDBFile.exists()) {
             try {
@@ -114,10 +115,10 @@ public class Rotater {
     }
 
     public class SignRotater extends TimerTask {
-        
+
         @Override
         public void run() {
-            for (Location l : signs) {
+            for (Location l : signs.toArray(new Location[0])) {
                 if (!(l.getBlock().getState() instanceof Sign)) {
                     signs.remove(l);
                     if (delaySave != null) {
@@ -141,7 +142,9 @@ public class Rotater {
                     }
                 }
             }
-            start();
+            if (rotater != null) {
+                start();
+            }
         }
     }
 
@@ -172,9 +175,9 @@ public class Rotater {
                 //waiting.remove(event.getPlayer());
                 if (event.getClickedBlock().getState() instanceof Sign) {
                     if (event.getClickedBlock().getType() == Material.SIGN_POST) {
-                        if(signs.contains(event.getClickedBlock().getLocation())){
+                        if (signs.contains(event.getClickedBlock().getLocation())) {
                             signs.remove(event.getClickedBlock().getLocation());
-                        }else{
+                        } else {
                             signs.add(event.getClickedBlock().getLocation());
                         }
                         if (delaySave != null) {
