@@ -1,7 +1,7 @@
 Sign Rotate
 rotates signs :)
 
-while adding signs to bettershop, i got to thinking: wouldn't it be neat if they could spin around on their own? 
+while adding signs functionality to bettershop, i got to thinking: wouldn't it be neat if they could spin around on their own? 
 well, shortly thereafter, here it is:
 a plugin that provides such useless and amusing functionality :)
 to set a sign rotating: run /sr, then click on the sign
@@ -33,6 +33,9 @@ allow blocks to rotate (not just signs) ?
 
 
 Changelog: 
+
+Version 0.2 - 7/4/11
+Sign rotation thread moved to bukkit scheduler (more thread-safe)
 
 Version 0.1.1 - 4/21/11
 Fixed ConcurrentModificationException annoyance
