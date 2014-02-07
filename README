@@ -34,8 +34,15 @@ allow blocks to rotate (not just signs) ?
 
 Changelog: 
 
+Version 1.0 - 2/6/14
+Brought back into the modern world!
+various code optimisations, threw out the old permissions and configs, and in with the new
+database changed to binary format - uses less disk space, loads much faster!
+
 Version 0.2 - 7/4/11
 Sign rotation thread moved to bukkit scheduler (more thread-safe)
+added groupmanager-specific compatibility
+permissions 3.x compatible 
 
 Version 0.1.1 - 4/21/11
 Fixed ConcurrentModificationException annoyance

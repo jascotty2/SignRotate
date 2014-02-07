@@ -1,12 +1,16 @@
 name: SignRotate
-main: com.jascotty2.signrotate.SignRotate
-version: 0.2
+main: com.jascotty2.signrotate.SignRotatePlugin
+version: 1.0
 website: https://github.com/jascotty2/
 author: jascotty2
-description: >
-             makes signs rotate :)
+description: makes signs rotate :)
 commands:
   signrotate:
     description: start/stop a sign
     usage: /<command> [cw, ccw, delay]
     aliases: [sr]
+permissions:
+  signrotate.admin:
+    default: op
+  signrotate.create:
+    default: op
