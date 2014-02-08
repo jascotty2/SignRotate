@@ -71,15 +71,15 @@ public class SignRotatePlugin extends JavaPlugin {
 			} else if (args[0].equalsIgnoreCase("delay")) {
 				if (sender.isOp() || sender.hasPermission("signrotate.admin")) {
 					if (args.length == 2) {
-						double t = -1;
+						int t = -1;
 						try {
-							t = Double.parseDouble(args[1]);
+							t = Integer.parseInt(args[1]);
 						} catch (Exception e) {
 						}
 						if (t > 0) {
-							rot.setWait((long) (t * 1000));
+							rot.setWait(t);
 							update = true;
-							sender.sendMessage(String.format(name + "Rotate delay set to %.1fs", (double) rot.getWait() / 1000));
+							sender.sendMessage(String.format(name + "Rotate delay set to %d ticks (%.1fs)", rot.getWait(), rot.getWait() / 20.));
 							rot.start();
 						} else {
 							sender.sendMessage(name + ChatColor.RED + args[1] + " is not a positive number");

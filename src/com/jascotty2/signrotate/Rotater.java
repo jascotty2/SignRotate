@@ -143,8 +143,8 @@ public class Rotater {
 		return plugin.config.rotateWait;
 	}
 
-	public void setWait(long wait) {
-		plugin.config.rotateWait = wait < SRConfig.MIN_WAIT ? SRConfig.MIN_WAIT : wait;
+	public void setWait(int wait) {
+		plugin.config.rotateWait = Math.max(wait, SRConfig.MIN_WAIT);
 	}
 
 	protected class SignSaver implements Runnable {
@@ -160,9 +160,10 @@ public class Rotater {
 
 		int taskID = -1;
 
-		public void start(long wait) {
+		public void start(int wait) {
+			cancel();
 			// 20 ticks per second
-			taskID = plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, this, (wait * 20) / 1000, (wait * 20) / 1000);
+			taskID = plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, this, wait, wait);
 		}
 
 		public void cancel() {

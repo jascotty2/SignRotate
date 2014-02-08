@@ -34,6 +34,10 @@ allow blocks to rotate (not just signs) ?
 
 Changelog: 
 
+Version 1.1 - 2/8/14
+Fixed updating rotate speed in-game
+updated command to use ticks, not seconds
+
 Version 1.0 - 2/6/14
 Brought back into the modern world!
 various code optimisations, threw out the old permissions and configs, and in with the new

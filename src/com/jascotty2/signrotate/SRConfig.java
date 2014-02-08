@@ -8,9 +8,8 @@ import org.bukkit.plugin.Plugin;
 public class SRConfig {
 
     protected File signDBFile;
-    public final static long MIN_WAIT = 100;
-    public static long saveWait = 30000;
-    public long rotateWait = 700;
+    public final static int MIN_WAIT = 2;
+    public int rotateWait = 14;
     public boolean isClockwise = false;
 	protected final Plugin plugin;
 
@@ -25,12 +24,17 @@ public class SRConfig {
 		plugin.reloadConfig();
 		FileConfiguration conf = plugin.getConfig();
 		
-		rotateWait = conf.getLong("rotateDelay", rotateWait);
+		Object rotateDelay = conf.get("rotateDelay");
+		rotateWait = conf.getInt("rotateTick", rotateDelay instanceof Number ? (int)(((Number)rotateDelay).longValue() * (20/1000.)) : rotateWait);
 		isClockwise = conf.getBoolean("rotateCW", isClockwise);
 	}
 
     public final void save() throws IOException {
 		FileConfiguration conf = plugin.getConfig();
+		
+		if(conf.get("rotateDelay") != null) {
+			conf.set("rotateDelay", null);
+		}
 		
 		conf.set("rotateDelay", rotateWait);
 		conf.set("rotateCW", isClockwise);
